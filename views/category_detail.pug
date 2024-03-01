@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 Category: #{category.name}
+  p #{category.description}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 items
+    if allItems.length
+      dl
+        each item in allItems
+          dt
+            a(href=item.url) #{item.name}
+          dd #{item.description}
+    else
+      p This category  has no items.
+
+  hr
+  p
+    a(href=category.url+'/delete') Delete category
+  
+  p
+    a(href=category.url+'/update') Update category
